@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function() {
+				var html = document.documentElement;
+
+				function onWindowResize() {
+					html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px';
+				}
+
+				window.addEventListener('resize', onWindowResize);
+				onWindowResize();
+			})();
+		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-105311960-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+		<title>传给雅昌框画</title>
+		<!--.&#xe604;-->
+		<link rel="stylesheet" type="text/css" href="static/iconfont.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				color: #333;
+				font-family: "Microsoft YaHei";
+			}
+			
+			body {
+				margin: 0 auto !important;
+			}
+			
+			.mint-header {
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				background-color: #333;
+				box-sizing: border-box;
+				color: #fff;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				font-size: 14px;
+				height: 40px;
+				line-height: 1;
+				padding: 0 10px;
+				position: relative;
+				text-align: center;
+				white-space: nowrap;
+			}
+			
+			.mint-header-title {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				font-size: inherit;
+				font-weight: 400;
+				-webkit-box-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+			}
+			
+			.goBack,
+			.goBack a,
+			.pageTitle,
+			.operate {
+				display: -webkit-box;
+				/* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;
+				/* OLD - Firefox 19- (buggy but mostly works) */
+				display: -ms-flexbox;
+				/* TWEENER - IE 10 */
+				display: -webkit-flex;
+				/* NEW - Chrome */
+				display: flex;
+				width: 6.66667rem;
+			}
+			
+			.img_box {
+				width: 10%;
+				height: 100%;
+				display: -webkit-box;
+				/* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;
+				/* OLD - Firefox 19- (buggy but mostly works) */
+				display: -ms-flexbox;
+				/* TWEENER - IE 10 */
+				display: -webkit-flex;
+				/* NEW - Chrome */
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				-ms-align-items: center;
+				-o-align-items: center;
+				align-items: center;
+			}
+			
+			.person_box {
+				width: 15%;
+				height: 100%;
+				display: -webkit-box;
+				/* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;
+				/* OLD - Firefox 19- (buggy but mostly works) */
+				display: -ms-flexbox;
+				/* TWEENER - IE 10 */
+				display: -webkit-flex;
+				/* NEW - Chrome */
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				-ms-align-items: center;
+				-o-align-items: center;
+				align-items: center;
+			}
+			
+			.goBacksize,
+			.personal_link {
+				width: 100%;
+			}
+			
+			.goBack {
+				text-decoration: none;
+				height: 100%;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				-ms-align-items: center;
+				-o-align-items: center;
+				align-items: center;
+				color: white;
+			}
+			
+			.goBack a {
+				text-decoration: none;
+				height: 100%;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				-ms-align-items: center;
+				-o-align-items: center;
+				align-items: center;
+				color: white;
+			}
+			
+			.goBack_font {
+				font-size: 0.67633rem;
+				padding-left: 0.19324rem;
+			}
+			
+			.goBack_font_cart {
+				font-size: 0.67633rem;
+				padding-left: 0.19324rem;
+			}
+			
+			.pageTitle {
+				justify-content: center;
+				-o-justify-content: center;
+				-moz-justify-content: center;
+				-ms-justify-content: center;
+				-webkit-justify-content: center;
+				font-size: 0.88406rem;
+			}
+			
+			.operate {
+				font-size: 0.67633rem;
+				justify-content: flex-end;
+				-o-justify-content: flex-end;
+				-moz-justify-content: flex-end;
+				-ms-justify-content: flex-end;
+				-webkit-justify-content: flex-end;
+			}
+			
+			.description {
+				margin-top: -1px;
+				height: 28.57971rem;
+				background: url(http://image2.artup.com/static/img/framed_pictures/bg.jpg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			
+			.content {
+				position: absolute;
+				bottom: 0;
+				padding-bottom: 1.02899rem;
+				font-size: 0.75rem;
+				width: 20rem;
+				display: -webkit-box;
+				/* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;
+				/* OLD - Firefox 19- (buggy but mostly works) */
+				display: -ms-flexbox;
+				/* TWEENER - IE 10 */
+				display: -webkit-flex;
+				/* NEW - Chrome */
+				display: flex;
+				flex-direction: column;
+				-o-flex-direction: column;
+				-ms-flex-direction: column;
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				justify-content: flex-end;
+				-o-justify-content: flex-end;
+				-moz-justify-content: flex-end;
+				-ms-justify-content: flex-end;
+				-webkit-justify-content: flex-end;
+				text-align: center;
+				color: #ecedea;
+				letter-spacing: 0.07246rem;
+			}
+			
+			.title {
+				font-size: 0.875rem;
+				letter-spacing: 10px;
+				margin-bottom: 0.48309rem;
+				color: #ffffff;
+			}
+			
+			.content p {
+				padding-bottom: 3%;
+			}
+			
+			.cart_size {
+				width: 100%;
+			}
+			
+			.addCon {
+				width: 20rem;
+				padding-bottom: 4.83092rem;
+			}
+			
+			.addCon_topPic {
+				width: 18rem;
+				margin: 0 auto;
+				display: -webkit-box;
+				/* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;
+				/* OLD - Firefox 19- (buggy but mostly works) */
+				display: -ms-flexbox;
+				/* TWEENER - IE 10 */
+				display: -webkit-flex;
+				/* NEW - Chrome */
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				-ms-align-items: center;
+				-o-align-items: center;
+				align-items: center;
+				justify-content: center;
+				-o-justify-content: center;
+				-moz-justify-content: center;
+				-ms-justify-content: center;
+				-webkit-justify-content: center;
+			}
+			
+			.addCon_topText {
+				text-align: center;
+				padding-top: 2.41546rem;
+				padding-bottom: 2.41546rem;
+				font-size: 0.80676rem;
+				line-height: 1.25604rem;
+				letter-spacing: 0.09662rem;
+			}
+			
+			.addCon_midText {
+				width: 20rem;
+				margin: 0 auto;
+			}
+			
+			.addCon_midText_up {
+				text-align: center;
+				color: #919191;
+				width: 14.19807rem;
+				margin: 0 auto;
+				padding: 2.89855rem;
+				padding-bottom: 1.20773rem;
+				font-size: 0.80676rem;
+			}
+			
+			.addCon_midText_mid {
+				text-align: center;
+				width: 18rem;
+				margin: 0 auto;
+				font-size: 1.31884rem;
+				padding-bottom: 2.33333rem;
+				letter-spacing: 0.24155rem;
+			}
+			
+			.addCon_midText_bott {
+				width: 17.19807rem;
+				margin: 0 auto;
+				font-size: 0.80676rem;
+				line-height: 1.25604rem;
+				letter-spacing: 0.09662rem;
+				padding-bottom: 2.56039rem;
+			}
+			
+			.addCon_topPicText {
+				width: 80%;
+				margin: 0 auto;
+				font-size: 0.53913rem;
+			}
+			
+			.btn_box {
+				background-color: #fff;
+				width: 20rem;
+				height: 12%;
+				position: fixed;
+				z-index: 999;
+				bottom: 0;
+			}
+			
+			.made_btn {
+				width: 6.5942rem;
+				height: 1.85024rem;
+				font-size: 0.64251rem;
+				border: 1px solid #333;
+				text-align: center;
+				line-height: 1.85024rem;
+				margin: 0 auto;
+				margin-top: 1rem;
+			}
+			
+			.cart_box {
+				width: 1.44928rem;
+				height: 1.01449rem;
+				position: fixed;
+				bottom: 1.44928rem;
+				right: 1.77295rem;
+			}
+			
+			.cart_num {
+				position: absolute;
+				background-color: #69277e;
+				border-radius: 0.86957rem;
+				height: 0.48309rem;
+				line-height: 0.48309rem;
+				width: 0.96618rem;
+				font-size: 0.38647rem;
+				color: #fff;
+				text-align: center;
+				top: 2px;
+				right: -20px;
+			}
+			
+			.addRound {
+				width: 20rem;
+			}
+			
+			.lowRound {
+				padding-top: 1.15942rem;
+			}
+			
+			.cart_size2 {
+				width: 90%;
+				margin: 0 auto;
+				display: block;
+			}
+			
+			.cart_size3 {
+				margin-top: 1rem;
+			}
+			
+			.addCon_topText {
+				margin-bottom: 2.41546rem;
+			}
+			
+			.text1 {
+				padding: 3rem 0 1rem 0;
+			}
+			
+			.addCon_midText_bott {
+				/*width: 17.19807rem;*/
+				/*margin: 0 auto;*/
+				font-size: 0.680676rem;
+				line-height: 1.25604rem;
+				letter-spacing: 0.09662rem;
+				color: #474747;
+				text-align: center;
+				padding-bottom: 0.5rem;
+			}
+			
+			.addCon_midText_mid2 {
+				text-align: center;
+				width: 18rem;
+				margin: 0 auto;
+				font-size: 1.31884rem;
+				padding-top: 1.33333rem;
+				padding-bottom: 1.33333rem;
+				letter-spacing: 0.24155rem;
+			}
+			
+			.addCon_midText_gold {
+				text-align: center;
+				color: #9f774c;
+				width: 17.19807rem;
+				margin: 0 auto;
+				padding: 0.96618rem 0;
+				font-size: 0.80676rem;
+			}
+			
+			.addCon_topText {
+				padding-bottom: 0px !important;
+			}
+			
+			.mint-header-button {
+				position: absolute;
+				height: 40px;
+				width: 100px;
+				line-height: 40px;
+				text-align: left;
+				color: #fff;
+			}
+			
+			.mint-header-button a {
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="hbMsg">
+			<header class="mint-header">
+				<div class="mint-header-button">
+					<a style="text-decoration: none;" href="index.html"><i class="iconfont">&#xe604;</i>返回</a>
+				</div>
+				<h1 class="mint-header-title">框画介绍</h1>
+			</header>
+			<div class="bottom">
+				<div class="description">
+					<div class="content">
+						<p class="title">艺术框画</p>
+						<p>用你的作品装点你的生活</p>
+						<p>艺术和现代工艺的完美结合</p>
+						<p>独具匠心手工装裱</p>
+						<p class="end">打造属于你的影像画廊</p>
+					</div>
+				</div>
+				<div class="addCon">
+					<div class="addCon_topText">
+						定制画芯，多种框型可选，满足你的个性需求，打造家居及办公空间的完美视觉体验。
+					</div>
+					<div class="addCon_topPic"><img src="http://image2.artup.com/static/img/framed_pictures/1.jpg" class="addRound"></div>
+					<div class="addCon_midText">
+						<div class="addCon_midText_up">制作工艺</div>
+						<div class="addCon_midText_mid">艺术与现代工艺的结合</div>
+						<div class="addCon_midText_bott">
+							引进日本制框工艺，全手工精裱，确保细节完美无瑕。 </div>
+					</div>
+					<div class="addCon_topPic"><img src="http://image2.artup.com/static/img/framed_pictures/che3.jpg" class="addRound"></div>
+					<div class="addCon_topPic"><img src="http://image2.artup.com/static/img/framed_pictures/2.jpg" class="addRound"></div>
+					<div class="addCon_topPicText"></div>
+					<div class="addCon_midText">
+						<div class="addCon_midText_up">多种规格</div>
+						<div class="addCon_midText_mid">搭配万种生活</div>
+						<div class="addCon_midText_bott">
+							画框多种材质，多种尺寸、多种颜色可选， 自由搭配，演绎不同家居及办公风格。 </div>
+					</div>
+					<div class="addCon_topPic"><img src="http://image2.artup.com/static/img/framed_pictures/3.jpg" class="addRound"></div>
+					<div class="addCon_midText">
+						<div class="addCon_midText_up">包装</div>
+						<div class="addCon_midText_mid">安全环保，典雅包装</div>
+						<div class="addCon_midText_bott">
+							环保背板材料，安全无异味；瓦楞纸礼盒包装，精致大方。
+						</div>
+					</div>
+					<div class="addCon_topPic"><img src="http://image2.artup.com/static/img/framed_pictures/4.jpg" class="addRound"></div>
+					<div class="addCon_topPic"><img src="http://image2.artup.com/static/img/framed_pictures/5.jpg" class="addRound"></div>
+				</div>
+			</div>
+			<div class="btn_box">
+				<a id="start" href="javascript:void(0)" class="">
+					<div class="made_btn" style="color: rgb(51, 51, 51);">开始定制</div>
+				</a>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/config/config.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	$.ajax({
+		url: HOST_CONFIG+'artup-build/builder/wx/share/authorizeCodeUrl.do?format=json&ignore=true',
+		type: 'GET',
+		cache: false,
+		dataType:'json',
+		success: function(data){
+			window.location.href = data.authorizeCodeUrl
+		}	
+	})
+
+	$("#start").on("click",function(){
+			$.ajax({
+			url: HOST_CONFIG+'artup-build/builder/wx/share/authorizeCodeUrl.do?format=json&ignore=true',
+			type: 'GET',
+			cache: false,
+			dataType:'json',
+			success: function(data){
+				window.location.href = data.authorizeCodeUrl
+			}	
+		})
+	})
+	// http://image2.artup.com/artup-build/builder/wx/share/authorizeCodeUrl.do?format=json&ignore=true	
+
+	// getInfoByUrl(window.location.href,window.location.href);
+
+	function getInfoByUrl(url,urlAll){
+	$.ajax({
+		url: HOST_CONFIG+'artup-build/builder/wx/getInfo.do?format=json&ignore=true&url='+url+'?channelCode=1',
+		type: 'GET',
+		cache: false,
+		// data: {'url':window.location.href+'?channelCode=1'},
+		dataType:'json',
+		success: function(data){
+			console.log(data)
+			wx.config({
+				debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				appId: data.appId, // 必填，公众号的唯一标识
+				timestamp:data.timestamp, // 必填，生成签名的时间戳
+				nonceStr: data.noncestr, // 必填，生成签名的随机串
+				signature:data.signature,// 必填，签名，见附录1
+				jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+			wx.ready(function(){
+				alert(urlAll)	
+				//分享到朋友圈
+				wx.onMenuShareTimeline({
+					title: '框画分享到朋友圈', // 分享标题
+					link: urlAll, // 分享链接
+					imgUrl: 'http://testbuilder.artup.com/test/imgs/bbs/sgjshare.png', // 分享图标
+					success: function (res) { 
+					// 用户确认分享后执行的回调函数
+					// alert("分享给微信朋友成功");
+				},
+					cancel: function () { 
+					// 用户取消分享后执行的回调函数
+				}
+			});
+				// 分享到朋友
+				wx.onMenuShareAppMessage({
+					title: '框画分享到朋友', // 分享标题
+					desc: '小小的框画，记录点滴美好', // 分享描述
+					link: urlAll, // 分享链接
+					imgUrl: 'http://testbuilder.artup.com/test/imgs/bbs/sgjshare.png', // 分享图标
+					type: '', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function (res) {
+							//用户确认分享后执行的回调函数
+//						alert("分享给微信朋友成功");
+					},
+					cancel: function () { 
+							//用户取消分享后执行的回调函数
+//							alert("用户取消分享后执行的回调函数");
+					}
+				});
+			});
+			wx.error(function(res){
+//				alert("分享错误");
+			});
+			
+		}
+	});
+}
+	})
+</script>

@@ -1,0 +1,1523 @@
+@import '../../../static/config/const.less';
+#newAddress{
+    width: 100%;
+    height: 100%;
+    background: #f3f3f3;
+    position: relative;
+   .newAddressList{
+       width: 100%;
+       background: #fff;
+       >ul{
+           >li:nth-child(4){
+               height: 5.49rem;
+                 .listTable{
+                      >p{
+                          padding-top: 1rem;
+                          line-height: inherit;
+                       }
+                 }
+              
+           }
+           >li{
+               height: 2.4rem;
+               border-bottom: 1px solid #f3f3f3;
+              
+               .listTable{
+                   width: 18.93rem;
+                   height: 100%;
+                   margin: 0 auto;
+                    font-size: 0.69rem;
+                    box-sizing: border-box;
+                    position: relative;
+                   >p{
+                       float: left;
+                       height: 100%;
+                       width: 3rem;
+                       margin-left: 0.66rem;
+                       line-height: 2.4rem;
+                      text-align:justify;
+                      text-align-last:justify;
+                         box-sizing: border-box;
+                      
+                   }
+                   >p:nth-child(2){
+                            width: 0.7rem;
+                            height: 0.7rem;
+                            position: absolute;
+                            margin-left: inherit;
+                            line-height: inherit;
+                           text-align:inherit;
+                           text-align-last:inherit;
+                           box-sizing: border-box;
+                           right:0;
+                           top: 50%;
+                           margin-top: -0.35rem;
+                           
+                            >i{
+                               
+                                color: #4ecd31;
+                                //display: none;
+                            }
+                       
+                   }
+                   >input{
+                       float: left;
+                       width: 13rem;
+                       height: 100%;
+                       border: none;
+                       margin-left: 2.13rem;
+                       padding-left: 0.1rem;
+                       color: #999999;
+                        box-sizing: border-box;
+                   }
+                   >textarea{
+                       float: left;
+                       width: 13rem;
+                       height: 4.49rem;
+                       border: none;
+                       margin-left: 2.13rem;
+                       padding-left: 0.1rem;
+                       color: #999999;
+                       padding-top: 1rem;
+                        box-sizing: border-box;
+                   }
+                   .content-block{
+                        width: 100%;
+                        height: 100%;
+                       >input{
+                           float: left;
+                           width: 13rem;
+                           height: 100%;
+                           border: none;
+                           margin-left: 2.13rem;
+                           padding-left: 0.1rem;
+                           color: #999999;
+                       }
+                   }
+               }
+           }
+          
+       }
+   }
+   .submitBtn{
+       width: 16rem;
+       height: 2.13rem;
+       background: #000000;
+       color: #fff;
+       font-size: 0.74rem;
+       text-align: center;
+       line-height: 2.13rem;
+       position: absolute;
+       bottom: 2.13rem;
+       left: 50%;
+       margin-left: -8rem;
+   }
+}
+.clearfix:after {content: '\20';display: block;clear: both;visibility: hidden;}
+//订单列表
+#orderList{
+    width: 100%;
+    height: 100%;
+    background: #f3f3f3;
+    font-size: 0.6875rem;
+    color: #000;
+    >.order{
+        width: 100%;
+        min-height: 15.3rem;
+        box-sizing: border-box;
+        background: #ffffff;
+        margin-bottom: 0.6rem;
+        >ul{
+            height: 100%;
+            margin: 0 auto;
+            >li{
+                width: 100%;
+                height: 2.4375rem;
+                border-bottom:1px solid #f5f5f5;
+               // border-bottom:1px solid #ddd;
+                >span{
+                    display: inline-block;
+                    height: 100%;
+                    float: left;
+                    line-height:2.4375rem;
+                    margin-left: 2.1875rem;
+                }
+                >span:nth-child(1){
+                    width: 3rem;
+                    margin-left: 0;
+                    margin-left: 0.625rem;
+                    text-align: center;
+                    text-align: justify;
+                    text-align-last: justify;
+                    color: #666;
+                }
+                >span:nth-child(2){
+                    width: 10.9375rem;
+                }
+                >span:nth-child(3){
+                  margin-left: 1.125rem;
+                }
+                .orderContent{
+                    width: 19rem;
+                    height: 6.5625rem;
+                    margin: 0 auto;
+                    box-sizing: border-box;
+                    >ul{
+                        width: 100%;
+                        height: 5.5625rem;
+                        margin-top: 0.5rem;
+                        box-sizing: border-box;
+                        >li{
+                            width: 100%;
+                            height: 100%;
+                            float: left;
+                        }
+                        >li:nth-child(1){
+                            
+                             width:  5.5625rem;
+                             height: 5.5625rem;
+                             border: 1px solid #dddddd;
+                             border-radius: 4px;
+                             position: relative;
+                             box-sizing: border-box;
+                           
+                            >img{
+                                max-width: 5.5rem;
+                                max-height: 5.5625rem;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                left: 0;
+                                bottom: 0;
+                                margin: auto auto;
+                            }
+                        }
+                        >li:nth-child(2){
+                            width: 10rem;
+                            height: 100%;
+                            border-bottom: none;  
+                            margin-left: 0.64rem;
+                            >ul{
+                                 >li{
+                                    float: left;
+                                    width: 100%;
+                                    height: 0.85rem;
+                                    font-size: 0.69rem;
+                                    margin-top: 0.26rem;
+                                    >span{
+                                        margin-left: 0.2rem;
+                                    }
+                                    >span:nth-child(1){
+                                        margin-left: 0;
+                                    }
+                                }
+                                >li:first-child{
+                                    margin-top: 0;
+                                }
+                                >li:last-child{
+                                    margin-top: 2.6rem;
+                                    color: #f84845;
+                                }
+                            }
+                        }
+                        >li:nth-child(3){
+                            width: 1.8rem;
+                            position: relative;
+                            >span{
+                                width:100%;
+                                position: absolute;
+                                bottom: 0;
+                                text-align: right;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            >li.ordersContent{
+                height: 6.2rem;
+            }
+            >li:nth-last-child(2){
+                >p{
+                    height: 100%;
+                    line-height: 2.4375rem;
+
+                    float: left;
+                    margin-left: 0.2rem;
+                }
+                >p:first-child{
+                    margin-left: 0.8rem;
+                    color: #666666;
+                }
+                >p:nth-child(2){
+                    width: 4.2rem;
+                } 
+                >p:nth-child(3){
+                    width: 5.2rem;
+                    >span{
+                        color:#f84845;
+                    }
+                }         
+            }
+            >li:last-child{
+               
+                >div{
+                    width: 10.6rem;
+                    height: 100%;
+                    float: right;
+                    margin-right: 1rem;
+                    >p{
+                        width: 4.8rem;
+                        height: 1.6rem;
+                        border: 1px solid #999999;
+                        line-height: 1.6rem;
+                        text-align: center;
+                        float: left;
+                        margin-top: 0.4rem;
+                        margin-left: 0.6rem;
+                    }
+                    >p.active{
+                         border: 1px solid #333;
+                    }
+                    >p:first-child{
+                        margin-left: 0;
+                    }
+                 
+                }
+            }
+        }
+    }
+   
+}
+//我的作品库
+#workList{
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    //未完成已完成选中
+    .liActive{
+        color: #333333;
+        border-bottom: 2px solid #333333;
+    }
+   
+   
+    .headTap{
+        width: 100%;
+        height: 2.82rem;
+        background-color: #ffffff;
+        overflow: hidden;
+        >ul{
+            width: 18.93rem;
+            height:1.86rem;
+            margin: 0.48rem auto 0;
+            color: #666666;
+            >li{
+                width: 50%;
+                box-sizing: border-box;
+                 height: 100%;
+                float: left;
+                line-height:1.86rem;
+                text-align: center;
+                >p{
+                    width: 3.25rem;
+                    height: 100%;
+                    margin: 0 auto;
+                }
+            }
+            >li:first-child{
+                border-right: 1px solid #bdbdbd;
+                
+            }
+        }
+    }
+    .tapList{
+        width: 100%;
+        background-color: #ffffff;
+        .listContent{
+           width: 100%;
+           height: 100%;
+           margin: 0 auto;
+           >ul {
+                width: 100%;
+                margin: 0 auto;
+                background-color: #f3f3f3;
+               >li{
+                    background: #fff;
+                   .content{
+                    width: 18.93rem;
+                    margin: 0 auto;
+                   
+                    >ul{
+                    width: 100%;
+                    height: 5.56rem;
+                    margin-top: 0.5rem;
+                    box-sizing: border-box;
+                    position: relative;
+                    >li{
+                        width: 100%;
+                        height: 100%;
+                        float: left;
+                        margin-left: 0.8rem;
+                        span{
+                            float: left;
+                        }
+                        
+                    } 
+                    >li:nth-child(1){
+                        width: 1.22rem;
+                        margin-left: 0;
+                        position: relative;
+                        >p{
+                            width: 0.875rem;
+                            height: 0.875rem;
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -0.35rem;
+                           
+                            >i{
+                                color: #4ecd31;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                margin: auto auto;
+                               font-size: 1.1rem;
+                            }
+                        }
+                    }
+                    >li:nth-child(2){
+                         width:  4.26rem;
+                         border-radius: 4px;
+                         position: relative;
+                         box-sizing: border-box;
+                        >img{
+                            max-width: 4.26rem;
+                            max-height: 4.26rem;
+                            position: absolute;
+                            border: 1px solid #dddddd;
+                            top: 0;
+                            right: 0;
+                            left: 0;
+                            bottom: 0;
+                            margin: auto auto;
+                        }
+                    }
+                    >li:nth-child(3){
+                        width: 7.17rem;
+                        height: 4.26rem;
+                        border-bottom: none;  
+                        margin-top: 0.56rem;
+                        >ul{
+                             >li{
+                                float: left;
+                                width: 100%;
+                                font-size: 0.69rem;
+                                margin-top: 0.26rem;
+                                >span{
+                                    //margin-left: 0.2rem;
+                                }
+                                >span:nth-child(1){
+                                    margin-left: 0;
+                                }
+                            }
+                            >li:first-child{
+                                margin-top: 0;
+                            }
+                            >li:last-child{
+
+                                color: #999999;
+                            }
+                        }
+                    }
+                    >li:nth-child(4){
+                        width: 4rem;
+                        height: 1.3rem;
+                        position: absolute;
+                        bottom: 0.66rem;
+                        border:1px solid #666666;
+                        border-radius: 2px;
+                        margin-left: 0;
+                        right: 0;
+                        font-size: 0.64rem;
+                        color: #666666;
+                        >p{
+                            width:100%;
+                            bottom: 0;
+                            text-align: center;
+                            line-height: 1.3rem;
+                           
+                        }
+                    }
+                 }
+                }
+             }
+           }
+            
+        }
+    }
+}
+//收货地址
+#Address{
+    width: 100%;
+    height: 100%;
+    .addressList{
+        width: 100%;
+        height: 100%;
+        ul li{
+            width: 100%;
+           min-height:3.86rem;
+            overflow: hidden;
+            .content{
+                transition: left 1s;
+                width: 23.78rem;
+                position: relative;
+                margin-bottom: inherit;
+//              transition: all 2s;
+                  .listContent{
+                    width: 20rem;
+                    min-height:3.86rem;
+                    border-bottom: 1px solid  #f3f3f3;
+                    float: left;
+                    >ul{
+                        width: 18.93rem;
+                        min-height:3.86rem;
+                        margin: 0 auto;
+                        font-size: 0.69rem;
+                       
+                        li{
+                            float: left;
+                        }
+                        li:nth-child(1){
+                            width: 1rem;
+                          
+                             >p{
+                                width: 0.875rem;
+                                height: 0.875rem;
+                                position: absolute;
+                                top: 50%;
+                                margin-top: -0.35rem;
+                               
+                                >i{
+                                    color: #4ecd31;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    margin: auto auto;
+                                    font-size: 1.1rem;
+                                }
+                            }
+                        }
+                        li:nth-child(2){
+                            width: 15.57rem;
+                            min-height:3.86rem;
+                            >p{
+                                width: 100%;
+                                min-height: 1.93rem;
+                                box-sizing: border-box;
+                                line-height: 1.93rem;
+                                padding:0 0.8rem 0 0.8rem;
+                            }
+                            >p:nth-child(1){
+                                >span:nth-child(2){
+                                    margin-left: 2.13rem;
+                                }
+                            }
+                            >p:nth-child(2){
+                                line-height: 1rem;
+                                color: #666666;
+                            }
+                        }
+                        li:nth-child(3){
+                            width: 2.26rem;
+                            min-height:3.86rem;
+                            position: relative;
+                            >i{
+                                position: absolute;
+                                right: 0;
+                                top: 50%;
+                            }
+                        }
+                    }
+                  
+                }
+                .delet{
+                     width: 3.76rem;
+                     background: #f84845;
+                     float: left;
+                     color: #fff;
+                     font-size: 0.69rem;
+                     line-height: 100%;
+                     text-align: center;
+                     position: relative;
+                     height: 2rem;
+                     >div{
+                         width: 100%;
+                         position: absolute;
+                         top: 50%;
+                         margin-top: -0.23rem;
+                     }
+                    
+                }   
+            }
+              
+        }
+       
+    }
+    .newAddclassBtn{
+        width: 16rem;
+        height: 2.13rem;
+        text-align: center;
+        line-height:2.13rem;
+        border: 1px solid #dddddd;
+        margin: 1rem auto;
+        font-size: 0.746rem;
+        color: #666666;
+    }
+}
+ //订单选中
+ .circleNone{
+     border-radius: 50%;
+     border: 1px solid #999999;
+     >i{
+         display: none;
+     }
+}
+.swipeleft {
+    transform: translateX(-3.78rem) !important;
+  //left: -3.78rem;
+  
+}
+#payOrder{
+    width: 100%;
+    height: 100%;
+    background-color:#f3f3f3 ;
+    .bottomBar{
+        width: 100%;
+        height: 2.93rem;
+        background: #000000;
+        position: fixed;
+        bottom: 0;
+        color: #fff;
+        font-size: 0.69rem;
+        >ul{
+            width: 18.93rem;
+            margin: 0 auto;
+            height: 100%;
+            >li{
+                line-height: 2.93rem;
+                width: 50%;
+                height:100%;
+                float: left;
+            }
+            >li:nth-child(1){
+                >span{
+                    color: #f84845;
+                }
+            }
+            >li:nth-child(2){
+                position: relative;
+                >span{
+                    position: absolute;
+                    width: 5.3rem;
+                    height: 1.76rem;
+                    border: 1px solid #fff;
+                    display: block;
+                    text-align: center;
+                    line-height: 1.76rem;
+                    top: 0.64rem;
+                    right: 0;
+                   // color: #f84845;
+                }
+            }
+        }
+    }
+    .addressContet{
+        width: 100%;
+        height: 3.14rem;
+        background: url(../img/xjdzbg.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        font-size: 0.74rem;
+        color: #333;
+        >ul{
+            width: 18.93rem;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+            >i{
+              position: absolute;  
+              top: 1.3rem;
+              right: 0;
+            }
+            >li{
+                height: 50%;
+                line-height:1.57rem;
+            }
+            >li:nth-child(1){
+                color: #333;
+                >span:nth-child(2){
+                    margin-left: 2.13rem;
+                }
+            }
+            >li:nth-child(2){
+                color: #666666;
+            }
+        }
+    }
+    .address{
+        width: 100%;
+        height: 3.14rem; 
+        background: url("@{staticServer}static/img/xjdzbg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        text-align: center;
+        line-height: 3.14rem;
+        font-size: 0.74rem;
+        color: #333;
+        >span{
+            font-size: 0.9rem;
+        }
+    }
+    .content{
+        background: #fff;
+        width: 100%;
+        min-height: 15.2rem;
+        margin-top: 0.53rem;
+        .contentList{
+           width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-bottom: 1px solid #f3f3f3;
+            .zffs{
+                width: 18.93rem;
+                margin: 0 auto;
+                >ul{
+                    width: 100%;
+                    color: #666666;
+                    font-size: 0.69rem;
+                    >li{
+                        height: 2.4rem;
+                        width: 100%;
+                        border-bottom: 1px solid #f3f3f3;
+                        >span{
+                            display: block;
+                        }
+                        >span:nth-child(1){
+                            float: left;
+                            width: 3.98rem;
+                            height: 100%;
+                            line-height: 2.4rem;
+                            text-align:justify;
+                            text-align-last:justify;
+                        }
+                        >span:nth-child(2){
+                            width: 9.3rem;
+                            height: 100%;
+                            float: right;
+                            text-align: right;
+                            line-height: 2.4rem;
+                            position: relative;
+                            >i{
+                                 font-size: 0.9rem;
+                                 color: #57c867;
+                                 margin-right: 0.2rem;
+                                 position: relative;
+                                 top: 0.2rem;
+                            }
+                        }
+                    }
+                    >li.userGifts{
+                        width: 100%;
+                        height: 50%;
+                        line-height: 1.2rem;
+                        >p{
+                            position: relative;
+                            >span{
+                                position: absolute;
+                                right: 0;
+                            }
+                        }
+                    }
+                    >li.useCard{
+                        >p{
+                            width: 50%;
+                            height: 100%;
+                            float: left;
+                            line-height: 2.4rem;
+                            box-sizing: border-box;
+                            position: relative;
+                            >span{
+                                display: inline-block;
+                                width :0.8rem;
+                                height: 0.8rem;
+                                border: 1px solid #d6d6d6;
+                                position: absolute;
+                                top: 50%;
+                                margin-top: -0.5rem;
+                                right: 0.5rem;
+                                border-radius: 50%;
+                                >i{
+                                    text-align: center;
+                                    line-height: 0.8rem;
+                                    font-size: 0.86rem;
+                                    position: absolute;
+                                    color: #5800db;
+                                    display: none;
+                                }
+                            }
+                            .spanBorderNow{
+                                border: none;
+                            }
+                            .borderShow{
+                                border: 1px solid #d6d6d6;
+                            }
+                        }
+                        >p:first-child{
+                            border-right: 1px solid #f2f2f2;
+                        }
+                        >p:nth-child(2){
+                            padding-left: 1rem;
+                        }
+                    }
+                    >li:nth-child(2){
+                         >span:nth-child(2){
+                             color: #f84845;
+                         }
+                    }
+                     >li:nth-child(3){
+                         >span:nth-child(2){
+                             color: #333;
+                         }
+                    }
+                }
+            }
+            >ul{
+                width: 18.93rem;
+                margin: 0.58rem auto;
+              
+                >li{
+                    height: 100%;
+                    >div{
+                        float: left;
+                        height: 100%;
+                        box-sizing: border-box;
+                    }
+                    .leftBox{
+                        width: 4.48rem;
+                        position: relative;
+                        border: 1px solid #dddddd;
+                        border-radius: 4px;
+                        height: 3.6rem;
+                        overflow: hidden;
+                        img{
+                            max-height:4.32rem;
+                            max-width: 4.48rem;
+                            position: absolute;
+                            margin: auto auto;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            top: 0;
+                        }
+                    }
+                    .rightBox{
+                        width: 13.6rem;
+                        margin-left: 0.69rem;
+                        >ul{
+                            >li{
+                                width: 100%;
+                                height: 1rem;
+                                box-sizing: border-box;
+                                font-size: 0.69rem;
+                                line-height: 1rem;
+                            }
+                            >li:nth-child(3){
+                                color: #999999;
+                                font-size: 0.58rem;
+                            }
+                            >li:nth-child(4){
+                                >span{
+                                     margin-top: 0.5rem;
+                                }
+                                >span:nth-child(1){
+                                    float: left;
+                                    color: #f84845;
+                                }
+                                >span:nth-child(2){
+                                    float: right;
+                                    color: #999999;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#khSelect{
+    width: 100%;
+    height: 100%;
+    background:#eee;
+   .bbsImg{
+        width: 100%;
+        position: relative;
+        height: 19.9375rem;
+        background: #eee;
+        position: relative;
+         .contioner{
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+             left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto;
+            .hx{
+                
+                background: #b5b5b5;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto auto;
+                >img{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    margin: auto auto;
+                }
+                .imgBox{
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    >img{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                    }
+                    >span{
+                       width: 4rem;
+                       height: 1.6rem;
+                       text-align: center;
+                       line-height: 1.6rem;
+                       background:rgba(0,0,0,0.5);
+                       position: absolute;
+                       top: 0;
+                       right: 0;
+                       bottom: 0;
+                       left: 0;
+                       margin: auto auto;
+                       color: #fff;
+                       font-size: 0.69rem;
+                       z-index: 9;
+                       
+                    }
+                }
+               
+            }
+        }
+        > img {
+            max-height: 100%;
+            max-width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto auto;
+        }
+   }
+   .addCarBtn{
+       width: 10rem;
+       height: 2.4rem;
+       font-size: 0.8rem;
+       color: #333;
+       text-align: center;
+       margin: 0 auto;
+       line-height: 2.4rem;
+       border: 1px solid #999;
+   }
+      //选择
+    .slect_dl{
+        padding: 0 1.25rem;
+        min-height: 4.1875rem;
+        border: 1px solid #f5f5f5;
+        background: #fff;
+    
+        >dt{
+            line-height: 2.23125rem;
+            height: 2.03125rem;
+            font-size: 0.6875rem;
+            color: #666;            
+        }
+        >dd{
+                width: 100%;
+                overflow: hidden;
+                .dd_slect{
+                    width: 4rem;
+                    height: 2.3125rem;
+                    line-height: 2.3125rem;
+                    margin-right:0.463rem;
+                    border: 1px solid #ededed;
+                    box-sizing: border-box;
+                    float: left;
+                    margin-bottom: 0.3rem;
+                    overflow: hidden;
+                    position: relative;
+                    font-size: 0.625rem;
+                    text-align: center;
+                    >b{
+                        display: inline-block;
+                        width: 0.4375rem;
+                        height: 0.4375rem;
+                        border: 1px solid #efefef;
+                        margin-right: 0.2rem;
+                        background: #4170e9;
+                    }
+                }
+                .dd_slect:last-of-type{
+                    margin-right: 0;
+                }
+                 .dd_slectWidth{width: 8.2875rem !important;}
+                 .dd_slect:nth-of-type(2n+2){
+                     margin-right: 0;
+                 }
+                 .dd_active{
+                      border: 1px solid #5c5c5c !important;
+                 }
+            }
+    }
+}
+//页面底部样式
+  .cart_btn{
+        width: 100%;
+        height: 2.9375rem;
+        line-height: 2.9375rem;
+        position: fixed;
+        bottom: 0;left: 0;
+        font-size: 0.71875rem;
+        background: #000;
+        overflow: hidden;
+         padding: 0 0.6875rem;
+         z-index: 9;
+        >div{
+            float: left;
+        }
+        //全选
+
+    //价格
+    .price{
+        width: 5.5625rem;
+        height: 100%;
+        float: left;
+       
+        color: #fff;     
+        >span{
+            color: #f84845;
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
+            padding-left: 0.2rem;
+            >b{
+                font-weight: 400;
+                font-size: 0.6rem;
+                padding-right: 0.1rem;
+            }
+        }
+    }
+    //结算
+    .crectOrder{
+        width: 6.4375rem;
+        height: 1.875rem;
+        line-height: 1.875rem;
+        box-sizing: border-box;
+        font-size: 0.71875rem;
+        color: #fff;
+        letter-spacing: 0.2rem;
+        text-align: right;
+        margin-top: 0.5175rem;
+        float: right;
+        margin-right:  1.2rem;
+    }
+}
+#tlEdit{
+    width: 100%;
+    height: 100%;
+    .tlEditTop{
+        width: 100%;
+        height: 2rem;
+        background-color: black;
+        color: #c7c7c7;
+        font-size: 0.77295rem;
+        text-align: center;
+        >span{
+            line-height: 2rem;
+            
+        }
+    }
+    .tlEditContent{
+        width: 100%;
+        min-height: 14rem;
+        position: relative;
+        margin-top: 1rem;
+        .tl_img_195X145{
+           width: 11.8684rem;
+            height: 8.8252rem;
+            margin: 1.5rem;
+            display: block;
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+        .tl_img_145X195{
+            width: 8.8252rem;
+            height: 11.8684rem;
+            margin: 1.5rem;
+            display: block;
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+        .tl_195X145{
+            width: 12rem;
+            height: 8.89rem;
+             position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto auto;
+            background-color: #b5b5b5;
+            overflow: hidden; 
+            >img{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto auto;
+               
+            }
+            .myImgBox{
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 8.825rem;
+                display: none;
+                overflow: hidden;
+                >img{
+                    width: 100%;
+                }
+                >span{
+                    width: 4rem;
+                    height: 1.6rem;
+                    text-align: center;
+                    line-height: 1.6rem;
+                    background: rgba(0, 0, 0, 0.5);
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto auto;
+                    color: #fff;
+                    font-size: 0.69rem;
+                    z-index: 9;
+                }
+            }
+           
+        }
+        
+        .tl_145X195{
+               width: 9rem;
+               height: 12.16rem;
+               top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto auto;
+                background-color: #b5b5b5;
+                position: relative;
+                overflow: hidden; 
+                >img{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto auto;
+                }
+             .myImgBox{
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 11.8684rem;
+                display: none;
+                overflow: hidden;
+                >img{
+                     width: 100%;
+                     height: 100%;
+                }
+                 >span{
+                    width: 4rem;
+                    height: 1.6rem;
+                    text-align: center;
+                    line-height: 1.6rem;
+                    background: rgba(0, 0, 0, 0.5);
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto auto;
+                    color: #fff;
+                    font-size: 0.69rem;
+                    z-index: 9;
+                }
+                
+            }
+        }
+         .tiData{
+               
+                bottom: 0rem;
+                text-align: center;
+                font-size: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+    }
+}
+//设置封底图片大小
+.tl_img_195X145{
+   width: 11.8684rem;
+    height: 8.8252rem;
+    margin: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.tl_img_145X195{
+    width: 8.8252rem;
+    height: 11.8684rem;
+    margin: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+//结束
+#hbSelect{
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+.bgrq{
+    width: 4rem; color: #fff; text-align: center;margin-left: 1rem;
+}
+//校验dpi
+.listBox ul li .bs .bstp .imgBox .bbsClass .myImgBox >a{
+    background: url(../img/gth.png);
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    z-index: 8;
+    position: absolute;
+    background-size: 100% 100%;
+    bottom: 0rem;
+    right: 0rem;
+    display: none;
+}
+.reportNavEdt{
+    text-align: center;
+    line-height: 40px;
+    color: red;
+    font-size: 0.6rem;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    display: none;
+    z-index: 999;
+}
+#couponExchange{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #f4f5f5;
+    .useYhj{
+        >p{
+            width: 60%;
+            height: 100%;
+            line-height: 3.04rem;
+            float: left;
+             font-size: 0.7466rem;
+             padding-left: 1rem;
+        }
+        .selectBtn{
+            width: 0.8rem;
+            height: 0.8rem;
+            border:1px solid #666;
+            float: right;
+            margin-top: 1.2rem;
+            margin-right: 1.4rem;
+            border-radius: 50%;
+            position: relative;
+            .clearXin{
+                width: 0.4rem;
+                height: 0.4rem; 
+                background-color: #5800db;
+                position: absolute;
+                left: 0;right: 0;
+                top: 0;bottom: 0;
+                margin: auto auto;
+                border-radius: 50%;
+            }
+        }
+    }
+    .exchangeInput{
+        width: 100%;
+        height: 3.04rem;
+        background-color: #fff;
+        .exchangeInputs{
+            width: 14.56rem;
+            height: 1.466rem;
+            background-color:#f4f5f5 ;
+            border: none;
+            margin-top: 0.8rem;
+            margin-left:1.066rem ;
+            border-radius: 6px;
+            font-size: 0.64rem;
+            color: #999;
+            float: left;
+            padding-left: 0.53rem;
+        }
+        
+        .exchangeBtn{
+            width: 2.93rem;
+            height: 1.466rem;
+            float: left;
+            background-color: #5800db;
+            margin-top: 0.8rem;
+            margin-left: 0.53rem;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.64rem;
+            text-align: center;
+            line-height: 1.466rem;
+        }
+    }
+    .couponList{
+            width: 18.5rem;
+            min-height: 4.533rem;
+            margin: 0 auto;
+            -webkit-overflow-scrolling : touch;
+            li{
+               width: 100%;
+               height: 4.533rem;
+               margin-top: 0.58rem;
+               background-repeat: no-repeat;
+               background-position: center;
+               background-size: 100%;
+                .leftText{
+                    width: 4.26rem;
+                    height: 100%;
+                    overflow: hidden;
+                    float: left;
+                    >p:first-child{
+                        font-size: 1.493rem;
+                        color: #5800db;
+                        text-align: center;
+                        margin-top: 0.96rem;
+                        >span{
+                            font-size: 0.74rem;
+                        }
+                    }
+                    >p:nth-child(2){
+                        text-align: center;
+                         margin-top: 0.4rem;
+                        font-size: 0.58rem;
+                    }
+                }
+                .clears{
+                    width: 0.8rem;
+                    height: 0.8rem;
+                    border:1px solid #666;
+                    float: right;
+                    margin-top: 1.9rem;
+                    margin-right: 0.7rem;
+                    border-radius: 50%;
+                    position: relative;
+                    .clearXin{
+                        width: 0.4rem;
+                        height: 0.4rem; 
+                        background-color: #5800db;
+                        position: absolute;
+                        left: 0;right: 0;
+                        top: 0;bottom: 0;
+                        margin: auto auto;
+                        border-radius: 50%;
+                        
+                    }
+                }
+                .rightText{
+                    float: left;
+                    width: 11.94rem;
+                    height: 100%;
+                    >p{
+                        margin-left: 0.8rem;
+                        color: #666666;
+                        
+                    }
+                    >p:first-child{
+                        font-size: 0.64rem;
+                        margin-top: 0.8rem;
+
+                    }
+                    >p{
+                        font-size: 0.48rem;
+                         margin-top: 1.70rem;
+                    }
+                }
+            }
+            .wsy{
+               background-image: url(http://image2.artup.com/static/mobile/wgqyhj_03.png) !important;
+            }
+            >li.ygq{
+               background-image: url(http://image2.artup.com/static/mobile//ygqyhj_03.png);
+               .leftText{
+                   >p:first-child{
+                       color: #dedede;
+                   }
+               }
+            }
+            >li.ysy{
+               background-image: url(http://image2.artup.com/static/mobile//ysy.png);
+               .leftText{
+                   >p:first-child{
+                       color: #dedede;
+                   }
+               }
+            }
+            .bny{
+               background-image: url(http://image2.artup.com/static/mobile/yhjbnsy_03.png);
+               .leftText{
+                   >p:first-child{
+                       color: #dedede;
+                   }
+               }
+            }
+    }
+}
+#giftCardView{
+    .cardList{
+        width: 100%;
+        height: 100%;
+        overflow-y:auto ;
+        .allPrice{
+            width: 100%;
+            height: 3.88rem;
+            border-bottom: 1px solid #e8e8ed;
+            overflow: hidden;
+            >p{
+                text-align: center;
+                font-size: 0.77rem;
+            }
+            >p:first-child{
+                margin-top: 0.74rem; 
+            }
+            >p:nth-child(2){
+                margin-top: 0.4rem;
+                font-size: 0.87rem;
+                color: #5800db;
+            }
+        }
+        .changeCardInput{
+          width: 100%;
+          height: 2.33rem; 
+          border-bottom: 1px solid #e8e8ed;
+          .changeBox{
+              width: 18.14rem;
+              height: 100%;
+              margin: 0 auto;
+              >input{
+                  width: 15.18rem;
+                  height: 1.37rem;
+                  border-radius: 4px;
+                  border: none;
+                  background: #efefef;
+                  margin-top: 0.5rem;
+                  float: left;
+                  padding-left: 0.5rem;
+              }
+              >span{
+               float: right;   
+               height: 1.37rem;
+               width: 2.29rem;
+               background-color: #5800db;
+               color: #fff;
+               font-size: 0.6rem;
+               text-align: center;
+               line-height: 1.37rem;
+               border-radius: 4px;
+               margin-top: 0.5rem;
+              }
+          }
+        }
+        .cardName{
+            width: 100%;
+            height: 1.62rem;
+            background-color: #efefef;
+            border-bottom: 1px solid  #e8e8ed;
+            font-size: 0.666rem;
+           
+            line-height: 1.62rem;
+            color: #000;
+            >p{
+               padding-left: 1.03rem;  
+            }
+        }
+        .cardListView{
+            width: 100%;
+            height: 2.96rem;
+            border-bottom: 1px solid  #e8e8ed;
+            .viewContent{
+                width: 18.51rem;
+                height: 100%;
+                margin: 0 auto;
+                .leftBox{
+                    width: 13.7rem;
+                    height: 100%;
+                    float: left;
+                    >p{
+                        font-size: 0.64rem;
+                        line-height: 1.1rem;
+                       
+                    }
+                    >p:first-child{
+                        margin-top: 0.4rem;
+                    }
+                    >p:nth-child(2){
+                        color: #999999;
+                    }
+                }
+                >p{
+                    float: right;
+                    height: 100%;
+                    line-height: 2.96rem;
+                    color: #5800db;
+                    font-size:  0.77rem;
+                }
+            }
+        }
+    }
+}
+
+
+

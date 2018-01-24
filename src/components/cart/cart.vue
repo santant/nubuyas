@@ -64,9 +64,7 @@
 		</div>
 	</div>
 </template>
-
 <script>
-
 import  Api   from '@/api.js'
 import  filter   from '../../filter.js'
 import { Toast ,Actionsheet,Popup,Indicator,MessageBox} from 'mint-ui';

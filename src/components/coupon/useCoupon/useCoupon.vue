@@ -46,7 +46,6 @@
 		</div>
 	</div>
 </template>
-
 <script>
 import Api from '@/api.js'
 import { Swipe, SwipeItem, Indicator } from 'mint-ui';

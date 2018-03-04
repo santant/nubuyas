@@ -58,6 +58,9 @@
     },
     methods:{
       check(params){ //切换选项
+       if(params.index1>0){
+         return
+       }
         for (var i = 0; i < this.bbs.attributes.length; i++) {
           for (var j = 0; j < this.bbs.attributes[i].attributeValues.length; j++) {
             this.bbs.attributes[i].attributeValues[j].colorF = false;
@@ -154,18 +157,18 @@
 
       Api.work.workList(paraJson).then((res)=>{
         if (res.data.results.length>0) {
-          MessageBox({
-            title: '我的作品',
-            message: '您有未完成的作品,需要继续编辑吗?',
-            confirmButtonText:'编辑未完成作品',
-            cancelButtonText:'创建新作品',
-            showCancelButton: true
-          }).then((res)=>{
-            if(res=="confirm"){//有未完成的作品
-              //跳转到未完成的页面去
-              this.$router.push({path:"/workList",query:{"":''}})
-            }
-          })
+//          MessageBox({
+//            title: '我的作品',
+//            message: '您有未完成的作品,需要继续编辑吗?',
+//            confirmButtonText:'编辑未完成作品',
+//            cancelButtonText:'创建新作品',
+//            showCancelButton: true
+//          }).then((res)=>{
+//            if(res=="confirm"){//有未完成的作品
+//              //跳转到未完成的页面去
+//              this.$router.push({path:"/workList",query:{"":''}})
+//            }
+//          })
         };
       })
       //监听浏览器返回

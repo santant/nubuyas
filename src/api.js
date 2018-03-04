@@ -109,15 +109,15 @@ const DELECT_WORK = 	`${HOST}artup-build/builder/cors/edit/delete/command.do?for
 //保存框画的字段
 const KUANGHUA = `${HOST}artup-build/builder/accesslog/save.do?ignore=true&format=json&client=mobile`
 //优惠劵
-const COUPON_LIST = `${COUPON_HOST}artup-coupon-api/f/myCoupon`
+const COUPON_LIST = `${COUPON_HOST}artup-channel-api/coupon/myCoupon`
 //获取最优优惠劵策略
-const COUPON_OPTIMAL = `${COUPON_HOST}artup-coupon-api/f/queryCouponStrategy`
+const COUPON_OPTIMAL = `${COUPON_HOST}artup-channel-api/coupon/queryCouponStrategy`
 //兑换优惠劵
-const CHANGE_CUPON = `${COUPON_HOST}/artup-coupon-api/f/assignCoupon`
+const CHANGE_CUPON = `${COUPON_HOST}/artup-channel-api/coupon/assignCoupon`
 //礼品卡消费兑换明细
-const GIFT_CARD_LIST = `${COUPON_HOST}/artup-coupon-api/f/giftcard/queryGiftcardLog`
+const GIFT_CARD_LIST = `${COUPON_HOST}/artup-channel-api/giftcard/queryGiftcardLog`
 //礼品卡兑换
-const GIFT_CARD_CHANGE = `${COUPON_HOST}/artup-coupon-api/f/giftcard/usedGiftcard`
+const GIFT_CARD_CHANGE = `${COUPON_HOST}/artup-channel-api/giftcard/usedGiftcard`
 //获取用户信息
 const GET_USER_INFO = `${GET_USERINFO_HOST}artup-channel-api/account/userInfo`
 

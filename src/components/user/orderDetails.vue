@@ -8,7 +8,7 @@
     <div class="order-state">
       <i class="iconfont icon-yizhifu"></i>
       <span class="state-text">{{order.orderState}}</span>
-      <span class="order-amount">需要付款：￥399</span>
+      <span class="order-amount"></span>
     </div>
     <div class="making" v-if="order.status >= 7 && !express">
       <i class="iconfont icon-xiangzi1"></i>
@@ -47,7 +47,7 @@
                 v-if="item.sku && item.sku.split('.').length >= 2">{{item.sku.split('.')[2]}}</span>
         </div>
         <div class="unit-price-count">
-          <span class="unit-price">￥{{order.total}}</span>
+          <span class="unit-price">￥{{item.total}}</span>
           <span class="count">X{{order.num}}</span>
         </div>
       </div>
@@ -120,6 +120,7 @@
         }).then((res) => {
           if (res === 'confirm') {
             Api.car.cancleOrder2(params.code).then(res => {
+              location.reload()
               this.dataList[params.index].status = -1
               this.dataList[params.index].orderState = '已取消'
             }, () => {
@@ -138,6 +139,7 @@
           if (res === 'confirm') {
             Api.car.deleteOrders(order.code).then(res => {
               if (res.data.code === 'success') {
+                location.reload()
                 Toast('订单删除成功')
                 order.orderState = '已删除'
                 order.orderStateCode = 'delete'

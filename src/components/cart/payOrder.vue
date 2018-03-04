@@ -95,6 +95,7 @@
         car: '',
         total: 0,
         yhj: 0,
+        cuCode:'',
         couponCode: '',
         userCouponCode: false,
         giftsCard: false,
@@ -112,8 +113,9 @@
           //取消使用优惠劵或者是礼品卡
           this.changeCardsUseFn(-1)
           this.selectIndex = -1
+          this.cuCode = this.couponCode
+          this.couponCode = ''
         }
-
       },
       changeCardsUseFn(index) {
         $('.useCard p').find('span').removeClass('spanBorderNow')
@@ -157,10 +159,28 @@
           'client': 'shijie',
         }
         //如果session有channelCode 就存入
-        if (sessionStorage.getItem("channelCode")) {
-          console.log(sessionStorage.getItem("channelCode"))
-          jsons.channelCode = sessionStorage.getItem("channelCode")
+//        if (sessionStorage.getItem("channelCode")) {
+//          console.log(sessionStorage.getItem("channelCode"))
+//          jsons.channelCode = sessionStorage.getItem("channelCode")
+//        }
+        if($(this.$el).find(".spanBorderNow").length>0){
+          if (this.$route.query.couponCode){
+            jsons.couponCode = this.$route.query.couponCode
+          }else{
+            jsons.couponCode =  this.cuCode
+          }
+          if(this.selectIndex===1){
+            jsons.isUseCard =''
+          }
+          if(this.selectIndex===2){
+            jsons.couponCode =''
+          }
+        }else {
+          this.cuCode = jsons.couponCode
+          jsons.couponCode =  ""
+          jsons.isUseCard = ''
         }
+        console.log(jsons)
         Api.car.createOrder(jsons).then(res => {
           if (res.data.code == 'success') {
             var orderDbId = res.data.orderDbId;
@@ -189,6 +209,7 @@
               client: 'mobile',
               subject: '努比亚支付'
             }
+            console.log(jsons)
             this.goAppPay(jsons,isZeroPaid)
           } else {
             Toast(res.data.message)
@@ -220,7 +241,12 @@
         //location.href="#Address?openId="+this.$route.query.openId+"&orderDbId="+this.$route.query.orderDbId+"&userDbId="+localStorage.getItem("userDbId");
       },
       linkGo() {
-        this.vurRouterGo()
+        this.$router.replace({
+          path: '/cart',
+          query: {
+            'isindex':'y'
+          }
+        })
       },
       useCoupon() {
         this.$router.push({
@@ -229,7 +255,7 @@
             'openId': this.$route.query.openId,
             'orderDbId': this.$route.query.orderDbId,
             'userDbId': localStorage.getItem("userDbId"),
-            couponPrice: this.couponCode
+            couponPrice: this.couponCode ? this.couponCode : this.cuCode
           }
         })
         //location.href="UseCoupon#?openId="+this.$route.query.openId+"&orderDbId="+this.$route.query.orderDbId+"&userDbId="+localStorage.getItem("userDbId");
@@ -314,6 +340,7 @@
             }
             if (this.$route.query.price == undefined || this.$route.query.price == 'undefined') {
               this.couponCode = res.data.data.couponList[0].couponCode
+              this.cuCode=  this.couponCode
             }
             this.findProduct(this.couponCode)
           } else {

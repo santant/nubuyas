@@ -121,9 +121,9 @@
 		<div class="cart_btn">
 			<div class="price">
 				价格：<span><b>¥</b>{{bbs.oPrice}}</span></div>
-			<div v-if="!previewPage" v-tap="{methods : editWork}" class="crectOrder">
-				保存作品
-			</div>
+			<!--<div v-if="!previewPage" v-tap="{methods : editWork}" class="crectOrder">-->
+				<!--保存作品-->
+			<!--</div>-->
 			<div v-if="previewPage" v-tap="{methods : goCart}" class="crectOrder">
 				添加购物车
 			</div>
@@ -132,7 +132,7 @@
 		<mt-popup class="fileUpload" style="position;relative;" v-model="sheetVisible" closeOnClickModal="false" position="bottom">
 			<ul>
 				<li id="browseButton">从本地添加</li>
-				<li v-tap="{methods : slectUpload}">从素材库里导入</li>
+				<!--<li v-tap="{methods : slectUpload}">从素材库里导入</li>-->
 				<li @click="sheetVisible=false">取消</li>
 			</ul>
 		</mt-popup>

@@ -42,7 +42,7 @@ function ondragdrop(event) {
 function getFiles(event) {
 	var dt = event.dataTransfer;
 	//console.log(dt);
-	 
+
 	var files = dt.files;
 	var n = files.length;
 	for (var i = 0; i < n; i++) {
@@ -57,7 +57,7 @@ function getFiles(event) {
 //		}
 	}
 }
- 
+
 /**
  * 验证文件
  * 规则：	1、大小不能低于500k
@@ -79,12 +79,12 @@ function validateUploadFiles($, array) {
                  ok = false;
                  return;
             }
-			
+
 		}else{
 			alert('请上传jpg图片')
 			ok = false;
-		}	
-		
+		}
+
 	});
 	return ok;
 }
@@ -108,7 +108,7 @@ function uploadInitializer($, uploadUrl, uploadEventHandler){
         maxChunkRetries: 1,
         chunkRetryInterval: 5000,
         simultaneousUploads: 4,
-        chunkSize: 1*1024*1024,
+        chunkSize: 100*1024*1024,
         fileParameterName:"file",
         testChunks: false,
         allowDuplicateUploads:false,
@@ -117,7 +117,7 @@ function uploadInitializer($, uploadUrl, uploadEventHandler){
 	});
 	if(!r.support) {
           alert('NotSupport');
-  	} else { 
+  	} else {
   		//增加事件监听
   		var $dropBox = $('#dropBox');
   		$dropBox.bind("dragover", {obj : $dropBox},  ondragover);
@@ -142,10 +142,10 @@ function uploadInitializer($, uploadUrl, uploadEventHandler){
 //				ondragdrop.call(obj, event);
 //		};
 //  		$dropBox.get(0).addEventListener("drop", eventHandler, false);
-			
+
   		//绑定上传文件的事件处理
   		//artronFileUpload($, r, callback);
   		uploadEventHandler($, r);
   	}
-} 
- 
+}
+

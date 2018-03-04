@@ -92,7 +92,7 @@
 
 		</div>
 		<div class="btn_box">
-	       <a href="#/huaceSelect?category=xiaoshiguang">
+	       <a href="#/huaceSelect?category=shiguangji">
 	       	<div class="made_btn" id="art_album" style="color: #333;">开始定制</div>
 	       </a>
 	    </div>

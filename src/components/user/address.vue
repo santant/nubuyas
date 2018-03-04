@@ -104,10 +104,10 @@
       /*新增地址*/
       gotoAddAddress() {
         if (this.$route.query.dzgl && this.$route.query.dzgl == 'grzx') {
-          this.$router.push({path: "/newAddress", query: {"dzgl": 'grzx'}})
+          this.$router.replace({path: "/newAddress", query: {"dzgl": 'grzx'}})
           //location.href="#newAddress?dzgl=grzx";
         } else {
-          this.$router.push({
+          this.$router.replace({
             path: "/newAddress",
             query: {
               "openId": this.$route.query.openId,
@@ -118,14 +118,13 @@
           //location.href="#newAddress?openId="+this.$route.query.openId+"&orderDbId="+this.$route.query.orderDbId+"&userDbId="+localStorage.getItem("userDbId");
         }
       },
-
       /*编辑地址*/
       editorAddress(params) {
         if (this.$route.query.dzgl && this.$route.query.dzgl == 'grzx') {
-          this.$router.push({path: "/newAddress", query: {"dzgl": 'grzx', "dbId": params.dbId}})
+          this.$router.replace({path: "/newAddress", query: {"dzgl": 'grzx', "dbId": params.dbId}})
           //location.href="#newAddress?dzgl=grzx&dbId="+params.dbId;
         } else {
-          this.$router.push({
+          this.$router.replace({
             path: "/newAddress",
             query: {
               "dbId": params.dbId,
@@ -138,7 +137,7 @@
         }
       },
       linkGo() {
-        this.vurRouterGo();
+        this.vurRouterGo()
       }
     },
     mounted() {

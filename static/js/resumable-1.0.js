@@ -52,7 +52,6 @@
       query:{},
       headers:{},
       preprocess:null,
-      preprocessFile:null,
       method:'multipart',
       uploadMethod: 'POST',
       testMethod: 'GET',
@@ -65,13 +64,11 @@
       getTarget:null,
       maxChunkRetries:100,
       chunkRetryInterval:undefined,
-      permanentErrors:[400, 404, 409, 415, 500, 501],
+      permanentErrors:[400, 404, 415, 500, 501],
       maxFiles:undefined,
       withCredentials:false,
       xhrTimeout:0,
       clearInput:true,
-      chunkFormat:'blob',
-      setChunkTypeFromFile:false,
       maxFilesErrorCallback:function (files, errorCount) {
         var maxFiles = $.getOpt('maxFiles');
         alert('Please upload no more than ' + maxFiles + ' file' + (maxFiles === 1 ? '' : 's') + ' at a time.');
@@ -257,10 +254,8 @@
       if('function' === typeof item.getAsFile){
         // item represents a File object, convert it
         item = item.getAsFile();
-        if(item instanceof File) {
-          item.relativePath = path + item.name;
-          items.push(item);
-        }
+        item.relativePath = path + item.name;
+        items.push(item);
       }
       cb(); // indicate processing is done
     }
@@ -362,23 +357,11 @@
       };
       $h.each(fileList, function(file){
         var fileName = file.name;
-        var fileType = file.type; // e.g video/mp4
         if(o.fileType.length > 0){
           var fileTypeFound = false;
           for(var index in o.fileType){
-            // For good behaviour we do some inital sanitizing. Remove spaces and lowercase all
-            o.fileType[index] = o.fileType[index].replace(/\s/g, '').toLowerCase();
-
-            // Allowing for both [extension, .extension, mime/type, mime/*]
-            var extension = ((o.fileType[index].match(/^[^.][^/]+$/)) ? '.' : '') + o.fileType[index];
-
-            if ((fileName.substr(-1 * extension.length) === extension) ||
-              //If MIME type, check for wildcard or if extension matches the files tiletype
-              (extension.indexOf('/') !== -1 && (
-                (extension.indexOf('*') !== -1 && fileType.substr(0, extension.indexOf('*')) === extension.substr(0, extension.indexOf('*')))  ||
-                fileType === extension
-              ))
-            ){
+            var extension = '.' + o.fileType[index];
+            if(fileName.indexOf(extension, fileName.length - extension.length) !== -1){
               fileTypeFound = true;
               break;
             }
@@ -411,6 +394,16 @@
           })()} else {
             filesSkipped.push(file);
           };
+
+//          file.uniqueIdentifier = uniqueIdentifier;
+//          var f = new ResumableFile($, file, uniqueIdentifier);
+//          $.files.push(f);
+//          files.push(f);
+//          f.container = (typeof event != 'undefined' ? event.srcElement : null);
+//          window.setTimeout(function(){
+//            $.fire('fileAdded', f, event)
+//          },0);
+
           decreaseReamining();
         }
         // directories have size == 0
@@ -420,6 +413,9 @@
           uniqueIdentifier
             .then(
               function(uniqueIdentifier){
+                var timestamp=new Date().getTime();
+                uniqueIdentifier = uniqueIdentifier + timestamp;
+                //console.log('11111111111111111111-' + uniqueIdentifier);
                 // unique identifier generation succeeded
                 addFile(uniqueIdentifier);
               },
@@ -430,6 +426,9 @@
               }
             );
         }else{
+          var timestamp=new Date().getTime();
+          uniqueIdentifier = uniqueIdentifier + timestamp;
+          //console.log('222222222222222-' + uniqueIdentifier);
           // non-Promise provided as unique identifier, process synchronously
           addFile(uniqueIdentifier);
         }
@@ -450,7 +449,6 @@
       $.uniqueIdentifier = uniqueIdentifier;
       $._pause = false;
       $.container = '';
-      $.preprocessState = 0; // 0 = unprocessed, 1 = processing, 2 = finished
       var _error = uniqueIdentifier !== undefined;
 
       // Callback when something happens within the chunk
@@ -458,7 +456,7 @@
         // event can be 'progress', 'success', 'error' or 'retry'
         switch(event){
           case 'progress':
-            $.resumableObj.fire('fileProgress', $, message);
+            $.resumableObj.fire('fileProgress', $);
             break;
           case 'error':
             $.abort();
@@ -559,9 +557,6 @@
       };
       $.isComplete = function(){
         var outstanding = false;
-        if ($.preprocessState === 1) {
-          return(false);
-        }
         $h.each($.chunks, function(chunk){
           var status = chunk.status();
           if(status=='pending' || status=='uploading' || chunk.preprocessState === 1) {
@@ -581,31 +576,7 @@
       $.isPaused = function() {
         return $._pause;
       };
-      $.preprocessFinished = function(){
-        $.preprocessState = 2;
-        $.upload();
-      };
-      $.upload = function () {
-        var found = false;
-        if ($.isPaused() === false) {
-          var preprocess = $.getOpt('preprocessFile');
-          if(typeof preprocess === 'function') {
-            switch($.preprocessState) {
-              case 0: $.preprocessState = 1; preprocess($); return(true);
-              case 1: return(true);
-              case 2: break;
-            }
-          }
-          $h.each($.chunks, function (chunk) {
-            if (chunk.status() == 'pending' && chunk.preprocessState !== 1) {
-              chunk.send();
-              found = true;
-              return(false);
-            }
-          });
-        }
-        return(found);
-      }
+
 
       // Bootstrap and return
       $.resumableObj.fire('chunkingStart', $);
@@ -796,7 +767,7 @@
         });
 
         var func = ($.fileObj.file.slice ? 'slice' : ($.fileObj.file.mozSlice ? 'mozSlice' : ($.fileObj.file.webkitSlice ? 'webkitSlice' : 'slice')));
-        var bytes = $.fileObj.file[func]($.startByte, $.endByte, $.getOpt('setChunkTypeFromFile') ? $.fileObj.file.type : "");
+        var bytes = $.fileObj.file[func]($.startByte, $.endByte);
         var data = null;
         var params = [];
 
@@ -814,17 +785,7 @@
             data.append(parameterNamespace + k, v);
             params.push([encodeURIComponent(parameterNamespace + k), encodeURIComponent(v)].join('='));
           });
-          if ($.getOpt('chunkFormat') == 'blob') {
-            data.append(parameterNamespace + $.getOpt('fileParameterName'), bytes, $.fileObj.fileName);
-          }
-          else if ($.getOpt('chunkFormat') == 'base64') {
-            var fr = new FileReader();
-            fr.onload = function (e) {
-              data.append(parameterNamespace + $.getOpt('fileParameterName'), fr.result);
-              $.xhr.send(data);
-            }
-            fr.readAsDataURL(bytes);
-          }
+          data.append(parameterNamespace + $.getOpt('fileParameterName'), bytes, $.fileObj.fileName);
         }
 
         var target = $h.getTarget('upload', params);
@@ -846,9 +807,7 @@
           $.xhr.setRequestHeader(k, v);
         });
 
-        if ($.getOpt('chunkFormat') == 'blob') {
-          $.xhr.send(data);
-        }
+        $.xhr.send(data);
       };
       $.abort = function(){
         // Abort and reset
@@ -928,7 +887,15 @@
 
       // Now, simply look for the next, best thing to upload
       $h.each($.files, function(file){
-        found = file.upload();
+        if(file.isPaused()===false){
+          $h.each(file.chunks, function(chunk){
+            if(chunk.status()=='pending' && chunk.preprocessState === 0) {
+              chunk.send();
+              found = true;
+              return(false);
+            }
+          });
+        }
         if(found) return(false);
       });
       if(found) return(true);
@@ -952,6 +919,7 @@
     // PUBLIC METHODS FOR RESUMABLE.JS
     $.assignBrowse = function(domNodes, isDirectory){
       if(typeof(domNodes.length)=='undefined') domNodes = [domNodes];
+
       $h.each(domNodes, function(domNode) {
         var input;
         if(domNode.tagName==='INPUT' && domNode.type==='file'){
@@ -960,12 +928,18 @@
           input = document.createElement('input');
           input.setAttribute('type', 'file');
           input.style.display = 'none';
-          domNode.addEventListener('click', function(){
+          domNode.addEventListener('click', function(e){
             input.style.opacity = 0;
             input.style.display='block';
             input.focus();
             input.click();
             input.style.display='none';
+
+            var onclickFn = domNode.getAttribute('onClick');
+            if(onclickFn){
+              window[onclickFn](domNode, input, e);
+            }
+
           }, false);
           domNode.appendChild(input);
         }
@@ -979,19 +953,6 @@
           input.setAttribute('webkitdirectory', 'webkitdirectory');
         } else {
           input.removeAttribute('webkitdirectory');
-        }
-        var fileTypes = $.getOpt('fileType');
-        if (typeof (fileTypes) !== 'undefined' && fileTypes.length >= 1) {
-          input.setAttribute('accept', fileTypes.map(function (e) {
-            e = e.replace(/\s/g, '').toLowerCase();
-            if(e.match(/^[^.][^/]+$/)){
-              e = '.' + e;
-            }
-            return e;
-          }).join(','));
-        }
-        else {
-          input.removeAttribute('accept');
         }
         // When new files are added, simply append them to the overall list
         input.addEventListener('change', function(e){
@@ -1067,9 +1028,6 @@
     $.addFile = function(file, event){
       appendFilesFromFileList([file], event);
     };
-    $.addFiles = function(files, event){
-      appendFilesFromFileList(files, event);
-    };
     $.removeFile = function(file){
       for(var i = $.files.length - 1; i >= 0; i--) {
         if($.files[i] === file) {
@@ -1113,10 +1071,11 @@
     // AMD/requirejs: Define the module
     define(function(){
       return Resumable;
-    });
+    })
+
+
   } else {
     // Browser: Expose to window
     window.Resumable = Resumable;
   }
-
 })();

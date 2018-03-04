@@ -138,18 +138,18 @@
 
 			Api.work.workList(paraJson).then((res)=>{
 				if (res.data.results.length>0) {
-					MessageBox({
-					  title: '我的作品',
-					  message: '您有未完成的作品,需要继续编辑吗?',
-					  confirmButtonText:'编辑未完成作品',
-					  cancelButtonText:'创建新作品',
-					  showCancelButton: true
-					}).then((res)=>{
-						if(res=="confirm"){//有未完成的作品
-							//跳转到未完成的页面去
-							this.$router.push({path:"/workList"})
-						}
-					})
+//					MessageBox({
+//					  title: '我的作品',
+//					  message: '您有未完成的作品,需要继续编辑吗?',
+//					  confirmButtonText:'编辑未完成作品',
+//					  cancelButtonText:'创建新作品',
+//					  showCancelButton: true
+//					}).then((res)=>{
+//						if(res=="confirm"){//有未完成的作品
+//							//跳转到未完成的页面去
+//							this.$router.push({path:"/workList"})
+//						}
+//					})
 				};
 			})
 			//监听浏览器返回

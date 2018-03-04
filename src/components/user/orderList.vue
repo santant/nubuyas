@@ -31,7 +31,7 @@
                     <span v-if="undefined !== works.sku && null !== works.sku">{{works.sku | splitSku}}</span>
                     <span v-else>{{ works.name }}</span>
                   </li>
-                  <li>{{works.sku | splitSkuLast}} {{ works.size }}</li>
+                  <li>{{works.sku | splitSkuLast}} </li>
                   <li>¥ {{works.price | toFixedTwo}}</li>
                   <!--<li>{{ works.size }}</li>
                                     <li>¥ {{works.price |toFixedTwo}}</li>-->

@@ -231,9 +231,10 @@
 
 								Toast('作品删除成功');
 								if(this.worklist.length < 1){
-									MessageBox.alert('您当前没有任何作品请去创建').then(action => {
-				        				location.href=""
-									});
+                  Toast('您当前没有任何作品请去创建吧');
+//									MessageBox.alert('您当前没有任何作品请去创建').then(action => {
+//				        				location.href=""
+//									});
 								}
 							}
 						},err=>{
@@ -257,7 +258,7 @@
 					status : 1,
 					category: '' //类型
 				};
-			//开始默认的时候，去拿我的作品列表
+			//开始默认的时候，去拿我的作品列表.
 			Api.work.workList(paraJson).then((res)=>{
 				this.worklist = res.data.results;
 				console.log(this.worklist)
@@ -265,7 +266,9 @@
 					this.worklist[i].isOK = false;
 				}
 				Indicator.close();
-				console.log(this.worklist)
+        if(this.worklist.length < 1){
+          Toast('您当前没有任何作品请去创建吧');
+        }
 			})
 		}
 	}

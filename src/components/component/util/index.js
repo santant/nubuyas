@@ -80,7 +80,8 @@ export default {
 
     // 屌用支付的公共方式
     Vue.prototype.goAppPay = function (jsons, isZeroPaid) {  //isZeroPaid =1就是0元支付
-      if (isZeroPaid && isZeroPaid === 1) { //0元支付
+      if (isZeroPaid =='1') { // 0元支付
+        alert('0元支付')
         Api.car.updataOrderStatus3Pay({id: jsons.dbId, status: 3}).then(res => {
           if (res.data.status === 1) {
             this.$router.push({path: '/orderList'})

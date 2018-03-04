@@ -127,10 +127,10 @@
 						//console.log(res);
 						if( this.$route.query.dzgl !=''){
 							//location.href="#address?dzgl=grzx";
-							this.$router.push( { path : '/address', query : {'dzgl':'grzx'}});
+							this.$router.replace( { path : '/address', query : {'dzgl':'grzx'}});
 						}else{
 							//location.href="#payOrder?openId="+this.$route.query.openId+"&orderDbId="+this.$route.query.orderDbId+"&userDbId="+localStorage.getItem("userDbId")
-							this.$router.push( { path : '/payOrder', query : { 'openId' : this.$route.query.openId, 'orderDbId' : this.$route.query.orderDbId, 'userDbId' : localStorage.getItem("userDbId") }});
+							this.$router.replace( { path : '/payOrder', query : { 'openId' : this.$route.query.openId, 'orderDbId' : this.$route.query.orderDbId, 'userDbId' : localStorage.getItem("userDbId") }});
 						}
 					},err=>{
 						Toast('数据请求错误');
@@ -150,10 +150,10 @@
 						if(res.data.code == 'success'){
 							if(this.$route.query.orderDbId){
 								// location.href="#payOrder?openId="+this.$route.query.openId+"&orderDbId="+this.$route.query.orderDbId+"&userDbId="+localStorage.getItem("userDbId");
-								this.$router.push( { path : '/payOrder', query : { 'openId' : this.$route.query.openId, 'orderDbId' : this.$route.query.orderDbId, 'userDbId' : localStorage.getItem("userDbId") }});
+								this.$router.replace( { path : '/payOrder', query : { 'openId' : this.$route.query.openId, 'orderDbId' : this.$route.query.orderDbId, 'userDbId' : localStorage.getItem("userDbId") }});
 							}else{
 								// location.href="#address?openId="+this.$route.query.openId+"&orderDbId="+this.$route.query.orderDbId+"&userDbId="+localStorage.getItem("userDbId");
-								this.$router.push( { path : '/address', query : { 'openId' : this.$route.query.openId, 'orderDbId' : this.$route.query.orderDbId, 'userDbId' : localStorage.getItem("userDbId") }});
+								this.$router.replace( { path : '/address', query : { 'openId' : this.$route.query.openId, 'orderDbId' : this.$route.query.orderDbId, 'userDbId' : localStorage.getItem("userDbId") }});
 							}
 						}
 					},err=>{

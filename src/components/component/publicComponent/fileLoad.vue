@@ -4,7 +4,7 @@
 		<mt-popup class="fileUpload" style="position;relative;" v-model="sheetVisibles" closeOnClickModal="false" position="bottom">
 			<ul>
 				<li id="browseButton">从本地添加</li>
-				<li v-tap="{methods : slectUpload}">从素材库里导入</li>
+				<!--<li v-tap="{methods : slectUpload}">从素材库里导入</li>-->
 				<li @click="sheetVisibles=false">取消</li>
 			</ul>
 		</mt-popup>
